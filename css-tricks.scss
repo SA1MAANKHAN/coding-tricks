@@ -1,0 +1,82 @@
+//  which css property will be applied in case of cascade
+//  importance > specificity > order
+
+// sources of css 
+// 1. Author (by developer)
+// 2. User (by user)
+// 3. User Agent (by browser)
+
+*, *::after, *::before{
+    color: white; // for selecting all the elements
+}
+
+.overlay{
+    background-image: linear-gradient( to right bottom, 
+    rgba(74, 127, 145, 0.5),
+    rgba(255, 65, 65, 0.1)) , 
+    url(“../../img”);
+}
+
+.centerAbsolute{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.fixAnimationShaking{
+    backface-visibility: hidden;
+}
+
+.applyAnimationStylesFor0percent{
+    animation-fill-mode: backwards;
+}
+
+* .inherit{
+    box-sizing: inherit;
+}
+
+.darken{
+    background-color: darken($color-name,15%);
+}
+
+.lighten{
+    background-color: lighten($color-name,15%);
+}
+
+@mixin somename($arg) {
+    // resuable code over here
+}
+
+.userMixin{
+    @include somename(arg);
+}
+
+// select all the elements that start with class "abcd"
+[class^="abcd" ]{
+    color: red;
+}
+
+// select all the elements that ends with class "abcd"
+[class$="abcd" ]{
+    color: red;
+}
+
+// select all the elements that start with alt "logo"
+[alt=logo]{
+    color: red;
+}
+
+// background image behind text 
+.anytext{
+    background-image: url("../../someimg.png");
+    // or 
+    background-image: linear-gradient("some gradient");
+    background-clip: text;
+    color: transparent;
+}
+
+.transitionAll{
+    transition: all .2s;
+    
+}
