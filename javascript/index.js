@@ -1,5 +1,7 @@
 // type coercion = https://medium.com/front-end-weekly/implicit-coercion-in-javascript-5077ad5510d
 
+// console.log("loaded");
+
 const obj = {
   a: 1,
   b: 2,
@@ -758,3 +760,141 @@ const nested = [1, 2, 3, [4, 5, 6, [7, [[8, 9, [10, 11]], 12]], 13]];
 
 // console.log(lydia);
 // console.log(sarah);
+
+// function getPersonInfo(one, two, three) {
+//   console.log(one);
+//   console.log(two);
+//   console.log(three);
+// }
+
+// const person = "Lydia";
+// const age = 21;
+
+// getPersonInfo`${person} is ${age} years old`;
+
+// let obj1;
+// let obj2 = { a: "a", b: "b" };
+// function func(data) {
+//   obj1 = data;
+// }
+// func(obj2);
+// console.log(obj1 == obj2);
+// obj2.a = 45;
+// console.log(obj1);
+
+// var a = "aamir";
+
+// var onj1 = {
+//   a: "salmaan",
+//   prop: {
+//     a: "shahrukh",
+//     getfullname: function () {
+//       console.log(this)
+//       return this.a;
+//     },
+//   },
+// };
+
+// console.log(onj1.prop.getfullname());
+
+// var test = onj1.prop.getfullname;
+
+// console.log(test());
+
+// String.prototype.printify = function(){
+//   console.log(this.toString()) ;
+// }
+
+// console.log(this)
+
+// function Car() {
+//   this.make = "Lamborghini";
+//   return { make: "Maserati" };
+// }
+
+// const myCar = new Car();
+// console.log(myCar.make);
+
+// class Dog {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// }
+
+// Dog.prototype.bark = function () {
+//   console.log(`Woof I am ${this.name}`);
+// };
+
+// const a = [
+//   1, 2, 4, 6, 4, 2, 3, 6, 7, 5,5,5,5,5,5, 4, 32, 4,5, 6,5, 7, 5, 2, 1, 3, 4, 6, 7, 8,
+// ];
+
+// a.sort((a, b) => a - b);
+
+// let val;
+// let curr = 0;
+// let maxCount = 0;
+// let count = 0;
+// let prev;
+
+// while (curr < a.length) {
+//   if (prev === undefined) {
+//     prev = a[0];
+//     count = 1;
+//     curr++;
+//     continue;
+//   }
+
+//   if (prev === a[curr]) {
+//     count++;
+//     curr++;
+//     continue;
+//   }
+
+//   if (count > maxCount) {
+//     maxCount = count;
+//     val = prev;
+//   }
+
+//   prev = a[curr];
+//   count = 1;
+//   curr++;
+// }
+
+// console.log(`${val} occurs ${maxCount} times`);
+
+// 71
+// function* startGame() {
+//   const answer = yield 'Do you love JavaScript?';
+//   if (answer !== 'Yes') {
+//     return "Oh wow... Guess we're gone here";
+//   }
+//   return 'JavaScript loves you back ❤️';
+// }
+
+// const game = startGame();
+// console.log(/* 1 */); // Do you love JavaScript?
+// console.log(/* 2 */); // JavaScript loves you back ❤️
+
+// const { namd: myName } = { namd: 'Lydia' };
+
+// console.log(namd);
+
+// let a = [];
+
+// function func(arr) {
+//   arr.every((i) => {
+//     if (typeof i === "object") {
+//       func(i);
+
+//       return false;
+//     }
+//     a.push(i);
+
+//     return true;
+//   });
+// }
+
+// func([1, 2, 3, [4, 5, [6, 7, [8, 9]]]]);
+
+// console.log(a);
