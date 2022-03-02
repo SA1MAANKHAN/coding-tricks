@@ -898,3 +898,136 @@ const nested = [1, 2, 3, [4, 5, 6, [7, [[8, 9, [10, 11]], 12]], 13]];
 // func([1, 2, 3, [4, 5, [6, 7, [8, 9]]]]);
 
 // console.log(a);
+
+// for (let i = 1; i < 5; i++) {
+//   setTimeout(() => {
+//     console.log(i);
+//   }, i * 1000);
+// }
+
+// const alarm = {
+//   remind: function (aMessage) {
+//     alert(aMessage);
+//     this.timeoutID = undefined;
+//   },
+
+//   setup: function () {
+//     if (typeof this.timeoutID === "number") {
+//       this.cancel();
+//     }
+
+//     this.timeoutID = setTimeout(
+//       function (msg) {
+//         this.remind(msg);
+//       }.bind(this),
+//       1000,
+//       "Wake up!"
+//     );
+//   },
+
+//   cancel: function () {
+//     clearTimeout(this.timeoutID);
+//   },
+// };
+// window.addEventListener("click", () => alarm.setup());
+
+// function nums(a, b) {
+//   if (a > b) console.log("a is bigger");
+//   else console.log("b is bigger");
+//   return a + b;
+// }
+
+// let me = {
+//   name: "Ashutosh Verma",
+//   thisInArrow: () => {
+//     console.log(this); // no 'this' binding here
+//   },
+//   thisInRegular() {
+//     console.log(this); // 'this' binding works here
+//   },
+// };
+// me.thisInArrow();
+// me.thisInRegular();
+
+// String.prototype.printify = (n) => {
+//   for (let i = 0; i < n; i++) {
+//     console.log(this);
+//   }
+// };
+
+// console.log("yo".printify(3));
+
+// function outer() {
+//   console.log(this);
+
+//   const obj = {
+//     b: "sup",
+//     a: function inner() {
+//       console.log(this);
+//       const inin = () => {
+//         console.log(this);
+//         const ininin = () => {
+//           console.log(this);
+//         };
+//         ininin();
+//       };
+//       inin();
+//     },
+//   };
+//   obj.a();
+// }
+// outer();
+
+// 103
+// const set = new Set();
+
+// set.add(1);
+// set.add("Lydia");
+// set.add({ name: "Lydia" });
+
+// for (let item of set) {
+//   console.log(item + 2);
+// }
+
+// 105
+// function compareMembers(person1, person2 = person) {
+//   if (person1 !== person2) {
+//     console.log("Not the same!");
+//   } else {
+//     console.log("They are the same!");
+//   }
+// }
+
+// const person = { name: "Lydia" };
+
+// compareMembers(person);
+
+// 121
+// const config = {
+//   languages: [],
+//   set language(lang) {
+//     return this.languages.push(lang);
+//   },
+// };
+
+// console.log(config.language);
+
+// 122
+// const name = "Lydia Hallie";
+
+// console.log(!typeof name === "object");
+// console.log(!typeof name === "string");
+
+// 128
+// const names = "Lydia Hallie";
+// const age = 21;
+
+// console.log(Number.isNaN(names));
+// console.log(Number.isNaN(age));
+
+// console.log(isNaN(names));
+// console.log(isNaN(age));
+
+// longest substring
+
+// ========================
