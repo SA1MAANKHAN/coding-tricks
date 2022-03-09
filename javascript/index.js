@@ -1031,3 +1031,9 @@ const nested = [1, 2, 3, [4, 5, 6, [7, [[8, 9, [10, 11]], 12]], 13]];
 // longest substring
 
 // ========================
+
+// (async function () {
+//   const data = await fetch("https://www.reddit.com/r/Ben10.json");
+//   const res = await data.json();
+//   console.log(res);
+// })();

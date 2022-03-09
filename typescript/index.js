@@ -38,7 +38,13 @@ var E2;
 // // logs "12, 26"
 // const point = { x: 12, y: 26, z: 23 };
 // logPoint(point);
-// TYPE ASSERTION
-var str = "1";
-var str2 = str; //str is now of type number
-console.log(typeof str2);
+// // TYPE ASSERTION
+// var str = "1";
+// var str2: number = <number>(<any>str); //str is now of type number
+// console.log(typeof str2);
+var a;
+a = "hello";
+console.log(typeof a);
+a = 2;
+console.log(typeof a);
+console.log(a.__proto__);

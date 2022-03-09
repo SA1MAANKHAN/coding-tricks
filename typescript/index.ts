@@ -57,3 +57,10 @@ enum E2 {
 // var str = "1";
 // var str2: number = <number>(<any>str); //str is now of type number
 // console.log(typeof str2);
+
+let a: any;
+a = "hello";
+console.log(typeof a);
+a = 2;
+console.log(typeof a);
+console.log(a.__proto__);
