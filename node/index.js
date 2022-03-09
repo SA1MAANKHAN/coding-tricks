@@ -1,21 +1,22 @@
-// const ProgressBar = require("progress");
-// const bar = new ProgressBar(":bar", { total: 100 });
-// const timer = setInterval(() => {
-//   bar.tick();
-//   if (bar.complete) {
-//     clearInterval(timer);
-//   }
-// }, 100);
-// const readline = require("readline").createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-// });
-// readline.question(`What's your name?`, (name) => {
-//   console.log(`Hi ${name}!`);
-//   readline.close();
-// });
-// console.log("1");
-// console.log("2");
+const ProgressBar = require("progress");
+const bar = new ProgressBar(":bar", { total: 100 });
+const timer = setInterval(() => {
+  bar.tick();
+  if (bar.complete) {
+    clearInterval(timer);
+  }
+}, 100);
+
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+readline.question(`What's your name?`, (name) => {
+  console.log(`Hi ${name}!`);
+  readline.close();
+});
+console.log("1");
+console.log("2");
 // process.nextTick(() => {
 //   console.log("3");
 // });
@@ -91,5 +92,6 @@
 //     console.log(item);
 //   })
 // );
+
 var myName = require("./utils");
 myName();
