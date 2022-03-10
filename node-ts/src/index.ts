@@ -1,5 +1,8 @@
 import { writeFileSync, readFileSync, fstat } from "fs";
+import path from "path";
 import express from "express";
+import { getWeatherInfo } from "./weather";
+import hbs from "hbs";
 
 // 1 =======================
 
@@ -48,27 +51,88 @@ import express from "express";
 
 // 4 ===========================
 
-import axios from "axios";
+// import axios from "axios";
 
-async function getWeatherInfo(city: string): Promise<void> {
-  const data = await axios.get(
-    `http://api.weatherapi.com/v1/current.json?key=94d1cfec0e1b48d0afb122227220903&q=${city}&aqi=no`
-  );
+// async function getWeatherInfo(city: string): Promise<void> {
+//   const data = await axios.get(
+//     `http://api.weatherapi.com/v1/current.json?key=94d1cfec0e1b48d0afb122227220903&q=${city}&aqi=no`
+//   );
 
-  console.log(data.data.current);
-}
+//   console.log(data.data.current);
+// }
 
-getWeatherInfo("Delhi");
-// server ======================
+// getWeatherInfo("Delhi");
 
-// const app = express();
-// app.use(express.json());
+// 5 ==========================
 
-// app.get("/", (req: any, res, next) => {
-//   req.name = "salmaan";
-//   res.end("connected");
-// });
+// creating paths
+const pathToPulic: string = path.join(__dirname, "../public");
+const pathToTemplates: string = path.join(__dirname, "../templates/views");
+const pathToPartials: string = path.join(__dirname, "../templates/partials");
 
-// app.listen(5000, () => {
-//   console.log("now listening to 3000");
-// });
+const app = express();
+app.use(express.json());
+app.use(express.static(pathToPulic));
+
+// handlebars settings
+app.set("view engine", "hbs");
+app.set("views", pathToTemplates);
+hbs.registerPartials(pathToPartials);
+
+app.get("", (req, res) => {
+  res.render("index", { message: "Yo! Spidey" });
+});
+
+app.get("/about", (req, res) => {
+  res.render("about", {
+    heading: "Need Some Help?",
+    content: "Don't keep asking for help, become self dependent",
+  });
+});
+app.get("/weather", async (req: any, res: any) => {
+  const location: string = req.query.loc;
+  const data = await getWeatherInfo(location);
+  res.send(data);
+});
+
+app.listen(5000, () => {
+  console.log("now listening to 5000");
+});
+
+// 5 ==========================
+
+// 6 ==========================
+
+// 7 ==========================
+
+// 8 ==========================
+
+// 9 ==========================
+
+// 10 ==========================
+
+// 11 ==========================
+
+// 12 ==========================
+
+// 13 ==========================
+
+// 14 ==========================
+
+// 15 ==========================
+
+// 16 ==========================
+
+// 17 ==========================
+
+// 18 ==========================
+
+// 5 ==========================
+// 5 ==========================
+// 5 ==========================
+// 5 ==========================
+// 5 ==========================
+// 5 ==========================
+// 5 ==========================
+// 5 ==========================
+// 5 ==========================
