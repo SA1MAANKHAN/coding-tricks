@@ -1,14 +1,16 @@
 import {
   writeFileSync,
   readFileSync,
-  fstat,
+  open,
   createReadStream,
   ReadStream,
+  appendFileSync,
 } from "fs";
 import path from "path";
 import express from "express";
 import { getWeatherInfo } from "./weather";
 import hbs from "hbs";
+import { EventEmitter } from "events";
 
 // 1 =======================
 
@@ -127,31 +129,118 @@ import hbs from "hbs";
 
 // 6 ==========================
 
-const readStream: ReadStream = createReadStream(
-  "/home/test/Documents/Salmaan/coding-tricks/node-ts/src/data.txt"
-);
+// const readStream: ReadStream = createReadStream(
+//   "/home/test/Documents/Salmaan/coding-tricks/node-ts/src/data.txt"
+// );
 
-setTimeout(() => {
-  const data = readStream.read(10);
-  console.log(data);
-}, 10);
+// setTimeout(() => {
+//   const data = readStream.read(10);
+//   console.log(data);
+// }, 10);
 
-const data = readStream.read(10);
-readStream.read(10);
-readStream.read(10);
-readStream.read(10);
-readStream.read(10);
+// const data = readStream.read(10);
+// readStream.read(10);
+// readStream.read(10);
+// readStream.read(10);
+// readStream.read(10);
 
-const data2 = readStream.read(10);
-console.log(data, data2);
+// const data2 = readStream.read(10);
+// console.log(data, data2);
 
 // 7 ==========================
 
+// const app = express();
+
+// const eventEmitter = new EventEmitter();
+
+// // app.set("eventEmitter", eventEmitter);
+
+// // access it from any module of the application
+// app.get("eventEmitter");
+
+// console.log(
+//   app.get("eventEmitter").on("someEvent", () => {
+//     console.log("yo1");
+//   })
+// );
+// console.log(
+//   app.get("eventEmitter").on("anotherEvent", () => {
+//     console.log("yo2");
+//   })
+// );
+
+// app.get("eventEmitter").emit("someEvent");
+
+// eventEmitter.on("getReqAyi?", (e) => {
+//   console.log("agyi agyi agyi");
+//   e();
+// });
+
+// app.get("/", (req, res) => {
+//   eventEmitter.emit("getReqAyi?");
+//   res.send("emitted");
+// });
+
+// eventEmitter.emit("getReqAyi?", () => {
+//   console.log("job done");
+// });
+
+// app.listen(3000, () => {
+//   console.log("listenin...");
+// });
+
 // 8 ==========================
+
+// let x: number = 0;
+
+// const next = () => {
+//   console.log(x++);
+//   process.nextTick(next);
+// };
+
+// next();
 
 // 9 ==========================
 
+// let chunkIndex = 0;
+// const readStream = createReadStream(
+//   "/home/test/Documents/Salmaan/coding-tricks/node-ts/src/data.txt"
+// );
+
+// readStream.on("open", () => {
+//   console.log("Started Reading...");
+// });
+
+// readStream.on("end", () => {
+//   console.log("Completed Reading...");
+// });
+
+// readStream.on("data", (chunk) => {
+//   console.log("Chunk: " + ++chunkIndex);
+//   console.log("-----------------------------------------");
+//   console.log(chunk);
+//   console.log("\n");
+// });
+
 // 10 ==========================
+
+open(
+  "/home/test/Documents/Salmaan/coding-tricks/node-ts/src/data.txt",
+  "w+",
+  (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    writeFileSync(data, JSON.stringify({ name: "mama" }));
+    appendFileSync(data, "dadada");
+
+    const file = readFileSync(data);
+
+    console.log(file);
+  }
+);
 
 // 11 ==========================
 
