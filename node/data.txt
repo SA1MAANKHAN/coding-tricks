@@ -1,0 +1,7 @@
+Now, how do we relate all of this to the blockchain? Fungible tokens on the blockchain are called ERC-20 tokens. This ERC-20 is a standard format created by the Ethereum Foundation that is used to define a token. Many popular tokens have been created, like Tether (USDt), Bitcoin (BTC), BitTorrent Token (BTT), and many more.
+
+These tokens are virtual currencies that can be traded just like real currencies. You can trade a real-world item like cars, land, or other goods and be paid in any of the tokens.
+
+NFTs are created using the ERC-721 standard, which recognizes ownership. This ERC-721 is used to store ownership of collectibles in the blockchain. These collectibles can be anything, like deeds of ownership, houses, pieces of art, and so on.
+
+Images, and more specifically digital art pieces, are popular collectibles NFTs because they are easy to store, share, and sell.

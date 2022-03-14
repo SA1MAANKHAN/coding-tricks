@@ -1,4 +1,10 @@
-import { writeFileSync, readFileSync, fstat } from "fs";
+import {
+  writeFileSync,
+  readFileSync,
+  fstat,
+  createReadStream,
+  ReadStream,
+} from "fs";
 import path from "path";
 import express from "express";
 import { getWeatherInfo } from "./weather";
@@ -66,42 +72,78 @@ import hbs from "hbs";
 // 5 ==========================
 
 // creating paths
-const pathToPulic: string = path.join(__dirname, "../public");
-const pathToTemplates: string = path.join(__dirname, "../templates/views");
-const pathToPartials: string = path.join(__dirname, "../templates/partials");
+// const pathToPulic: string = path.join(__dirname, "../public");
+// const pathToTemplates: string = path.join(__dirname, "../templates/views");
+// const pathToPartials: string = path.join(__dirname, "../templates/partials");
 
-const app = express();
-app.use(express.json());
-app.use(express.static(pathToPulic));
+// const app = express();
+// app.use(express.json());
+// app.use(express.static(pathToPulic));
 
-// handlebars settings
-app.set("view engine", "hbs");
-app.set("views", pathToTemplates);
-hbs.registerPartials(pathToPartials);
+// // handlebars settings
+// app.set("view engine", "hbs");
+// app.set("views", pathToTemplates);
+// hbs.registerPartials(pathToPartials);
 
-app.get("", (req, res) => {
-  res.render("index", { message: "Yo! Spidey" });
-});
+// app.get("", (req, res) => {
+//   res.render("index", { message: "Yo! Spidey" });
+// });
 
-app.get("/about", (req, res) => {
-  res.render("about", {
-    heading: "Need Some Help?",
-    content: "Don't keep asking for help, become self dependent",
-  });
-});
-app.get("/weather", async (req: any, res: any) => {
-  const location: string = req.query.loc;
-  const data = await getWeatherInfo(location);
-  res.send(data);
-});
+// app.get("/about", (req, res) => {
+//   res.render("about", {
+//     heading: "Need Some Help?",
+//     content: "Don't keep asking for help, become self dependent",
+//   });
+// });
+// app.get("/weather", async (req: any, res: any) => {
+//   const location: string = req.query.loc;
+//   const data = await getWeatherInfo(location);
+//   res.send(data);
+// });
 
-app.listen(5000, () => {
-  console.log("now listening to 5000");
-});
+// app.listen(5000, () => {
+//   console.log("now listening to 5000");
+// });
 
 // 5 ==========================
 
+// const readStream: ReadStream = createReadStream(
+//   "/home/test/Documents/Salmaan/coding-tricks/node-ts/src/data.txt"
+// );
+
+// readStream.on("data", (chunk) => {
+//   console.log("---------------------------------");
+//   console.log(chunk);
+//   console.log("---------------------------------");
+// });
+
+// readStream.on("open", () => {
+//   console.log("Stream opened...");
+// });
+
+// readStream.on("end", () => {
+//   console.log("Stream Closed...");
+// });
+
 // 6 ==========================
+
+const readStream: ReadStream = createReadStream(
+  "/home/test/Documents/Salmaan/coding-tricks/node-ts/src/data.txt"
+);
+
+setTimeout(() => {
+  const data = readStream.read(10);
+  console.log(data);
+}, 10);
+
+const data = readStream.read(10);
+readStream.read(10);
+readStream.read(10);
+readStream.read(10);
+readStream.read(10);
+
+const data2 = readStream.read(10);
+console.log(data, data2);
 
 // 7 ==========================
 
